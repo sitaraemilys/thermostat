@@ -50,10 +50,17 @@ describe('Thermostat', function(){
     expect(thermostat.temperature).toBeLessThan(33);
     expect(thermostat.temperature).toBeGreaterThan(25);
   });
+
   it('can change powersaving mode on and off', function(){
-        thermostat.changePowerSavingMode();
-        thermostat.changePowerSavingMode();
-        expect(thermostat.maxTemp).toEqual(25);
+      thermostat.changePowerSavingMode();
+      thermostat.changePowerSavingMode();
+      expect(thermostat.maxTemp).toEqual(25);
   })
+
+  it('resets to 20 degrees', function(){
+    thermostat.up();
+    thermostat.reset();
+    expect(thermostat.temperature).toEqual(20);
+  });
 
 });
