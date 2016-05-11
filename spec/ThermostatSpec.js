@@ -25,7 +25,14 @@ describe('Thermostat', function(){
     for (var i = 100; i >= 0; i--) {
       thermostat.down();
     };
-     expect(thermostat.temperature).toBeGreaterThan(10);
+     expect(thermostat.temperature).toBeGreaterThan(9);
+  });
+
+  it('if power saving mode is on, the maximum temperature is 25 degrees', function(){
+    for (var i = 100; i >= 0; i--) {
+      thermostat.up();
+    };
+    expect(thermostat.temperature).toBeLessThan(26);
   });
 
 });
