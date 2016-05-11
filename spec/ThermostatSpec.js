@@ -7,9 +7,13 @@ describe('Thermostat', function(){
   });
 
 
-it('starts at 20 degrees', function(){
-  expect(thermostat.temperature).toEqual(20);
-});
-});
+  it('starts at 20 degrees', function(){
+    expect(thermostat.temperature).toEqual(20);
+  });
 
+  it('up increases', function(){
+    thermostat.up();
+    expect(thermostat.temperature).toBeGreaterThan(20);
+  });
 
+});
