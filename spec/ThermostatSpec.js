@@ -16,4 +16,9 @@ describe('Thermostat', function(){
     expect(thermostat.temperature).toBeGreaterThan(20);
   });
 
+  it('down decreases', function(){
+    thermostat.down();
+    expect(thermostat.temperature).toBeLessThan(20);
+  });
+
 });
