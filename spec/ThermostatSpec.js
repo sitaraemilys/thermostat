@@ -34,5 +34,9 @@ describe('Thermostat', function(){
     };
     expect(thermostat.temperature).toBeLessThan(26);
   });
+  it('it has a powersaving mode which is on', function(){
+
+    expect(thermostat.powerSavingMode).toEqual(true);
+  });
 
 });
