@@ -1,12 +1,15 @@
 describe('Thermostat', function(){
+
   var thermostat;
 
   beforeEach(function(){
     thermostat = new Thermostat();
   });
-  it('starts at a temperature of 20 degrees', function(){
+
+  it('starts at 20 degrees', function(){
     expect(thermostat.temperature).toEqual(20);
   });
+
   it('has a default temperature as 20', function(){
     expect(thermostat.getCurrentTemp()).toEqual(DEFAULT_TEMP);
   });
