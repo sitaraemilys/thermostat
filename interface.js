@@ -18,15 +18,15 @@ $(document).ready(function() {
     updateTemperature();
   });
 
-  $('#PSM on').click(function() {
+  $('#PSM-on').click(function() {
     thermostat.switchPowerSavingModeOn();
-    $('#power-saving').text('PSM on');
+    $('#power-saving-mode').text('on');
     updateTemperature();
   });
 
-  $('#PSM off').click(function() {
+  $('#PSM-off').click(function() {
     thermostat.switchPowerSavingModeOff();
-    $('#power-saving').text('PSM off');
+    $('#power-saving-mode').text('off');
     updateTemperature();
   });
 
