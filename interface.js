@@ -1,3 +1,4 @@
+MIN_TEMP = 10;
 
 $(document).ready(function() {
   var thermostat = new Thermostat();
@@ -51,6 +52,12 @@ $('#select-city').submit(function(event) {
   var city = $('#current-city').val();
   displayWeather(city);
 });
+
+$(".dial").knob({
+'min':
+'max':32,
+});
+
 
 
 
