@@ -1,4 +1,3 @@
-MIN_TEMP = 10;
 
 $(document).ready(function() {
   var thermostat = new Thermostat();
@@ -53,10 +52,43 @@ $('#select-city').submit(function(event) {
   displayWeather(city);
 });
 
+function setTemperature() {
+  $('#temperature').text(thermostat.temperature);
+  $('#temperature').attr('class', thermostat.energyUsage());
+}
+
+var $dial = $('.dial');
+var dialColour = ' #7fc2d6';
+// var numColour = dialColour;
+
+function updateColour() {
+  $('.dial').trigger(
+        'configure',
+        {
+            "fgColor": dialColour
+            // "data-fgcolor": dialColour
+        }
+    );
+}
+
 $(".dial").knob({
-'min':
-'max':32,
+  'min': thermostat.MIN_TEMP,
+  'max': thermostat.MAX_LIMIT_PSM_OFF,
+  'fgColor': dialColour,
+  change: function(){
+    if ($dial.val() < 18) {
+       dialColour = '#89b6a1';
+    }
+    else if (($dial.val() >= 18) && ($dial.val() <= 25 )) {
+       dialColour = '#7fc2d6';
+     }
+    else if ($dial.val() > 25) {
+       dialColour = '#e36363';
+    }
+    updateColour();
+  }
 });
+
 
 
 
